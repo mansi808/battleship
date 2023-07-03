@@ -46,7 +46,7 @@ public class Main {
             while (!i.posValid) {
                 input_pos0 = scanner.nextLine().trim().split("[\\s]+"); //geting output
                 System.out.println();
-                i.getLevel(input_pos0[0],input_pos0[1]);//getting level
+                i.setLevel(input_pos0[0],input_pos0[1]);//getting level
                 i.inputPos(input_pos0[0],input_pos0[1],player1.placingField);
                 i.setPosValid(input_pos0[0],input_pos0[1]);
                 if (!i.posValid) continue;
@@ -57,7 +57,7 @@ public class Main {
             }
             
             player1.placingField.print();
-            collection1.occcupied(player1.placingField); collection1.inrange(player1.placingField);
+            collection1.occcupied(player1.placingField); collection1.setAllClosePos(player1.placingField);
             System.out.println();
         }
 
@@ -82,7 +82,7 @@ public class Main {
             while (!i.posValid) {
                 input_pos1 = scanner.nextLine().trim().split("[\\s]+");
                 System.out.println();
-                i.getLevel(input_pos1[0],input_pos1[1]);//getting level
+                i.setLevel(input_pos1[0],input_pos1[1]);//getting level
                 i.inputPos(input_pos1[0],input_pos1[1],player2.placingField);
                 i.setPosValid(input_pos1[0],input_pos1[1]);
                 if (!i.posValid) continue;
@@ -91,7 +91,7 @@ public class Main {
             }
 
             player2.placingField.print();
-            collection2.occcupied(player2.placingField); collection2.inrange(player2.placingField);
+            collection2.occcupied(player2.placingField); collection2.setAllClosePos(player2.placingField);
             System.out.println();
 
         }
@@ -136,7 +136,7 @@ public class Main {
             collection1.takeAttack(player1.shootingField, player1.placingField, player1.ships);
 
         }
-        System.out.println("Congratulations! your ships survived the heat. You won!");
+        System.out.println("Congratulations! you won the game!");
 
     }
 }
