@@ -12,6 +12,7 @@ public class GameField {
         this.contents = construct();
     }
 
+    //multiple constructors for construct()
     //return a field with only '~' character
     public char[][] construct() {
 
@@ -21,7 +22,8 @@ public class GameField {
         } return field_placeholder;
     }
 
-    //other construct method only changes the existing arraylist return vois
+    //other construct method only changes the existing arraylist
+    // returns void
     //A=10-J=20 are character code
     //vertical ship
     public void construct(char element, int x_pos, char y_pos1, char y_pos2,Ship ship) {
@@ -38,13 +40,14 @@ public class GameField {
         for (int i= Math.min(x_pos1,x_pos2); i< ship.cellSize+Math.min(x_pos1,x_pos2); i++) contents[y-1][i-1] = element;
     }
 
-    //making change to contents for attack position
+    //making change to contents after getting attack position from user
     public void construct(char element, int x_pos, char y_pos) {
 
         int y = Character.getNumericValue(y_pos)-9;
         contents[y-1][x_pos-1] = element;
     }
 
+    //prints 'contents' of field
     public void print() {
 
         System.out.println("  1 2 3 4 5 6 7 8 9 10");
@@ -58,7 +61,7 @@ public class GameField {
         }
     }
 
-    //has all positions with "row"+"col" with 'X'
+    //returns all positions with "row"+"col" with hit ship ('X' symbol)
     public ArrayList<String> allHitPos() {
 
         ArrayList<String> arr = new ArrayList<>();
