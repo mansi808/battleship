@@ -95,6 +95,7 @@ class ShipCollection {
     public int length;
     public ArrayList<String> allPos = new ArrayList<>(); //positions with the ships "rowcol" String
     public ArrayList<String> allClosePos = new ArrayList<>(); //positions surrounding ships + positions with the ships
+    ArrayList<Integer> sankShipIndex = new ArrayList<>(); //index of the ships sank for 'ships' array from ShipCollection
 
     ShipCollection(int length, Ship[] ships) {
         this.length = length;
@@ -135,21 +136,27 @@ class ShipCollection {
             System.out.println("Error! You entered the wrong coordinates! Try again:");
             takeAttack(shootingField, placingField, ships);
 
-        } else if (allPos.contains(row+""+col)) {   //checking if a ship was hit
+        } else if (shootingField.contents[row][col]!='~') { //checking if the position was already tried
+
+            System.out.println("Error! You already tried there! Try again:");
+            takeAttack(shootingField, placingField, ships);
+
+        }else if (allPos.contains(row+""+col)) {   //checking if a ship was hit
 
             shootingField.construct(Ship.hit_symbol, Integer.parseInt(attack_pos.substring(1)), attack_pos.charAt(0) );
             placingField.construct(Ship.hit_symbol, Integer.parseInt(attack_pos.substring(1)), attack_pos.charAt(0) );
 
 
             int y=0;
-            for (Ship ship : ships) {
+            for (int i=0; i < ships.length; i++) {
 
-                if (shootingField.allHitPos().containsAll(ship.inputPos)) {
-                    System.out.println("You sank a ship! Specify a new target:");
+                if (shootingField.allHitPos().containsAll(ships[i].inputPos) && !sankShipIndex.contains(i)) {
+                    sankShipIndex.add(i);
+                    System.out.println("You sank a ship!");
                     break;
                 }
-                y += ship.cellSize;
-                if (ship == ships[ships.length-1]) {
+                y += ships[i].cellSize;
+                if (ships[i] == ships[ships.length-1]) {
                     System.out.println("You hit a ship!");
                 }
             }
