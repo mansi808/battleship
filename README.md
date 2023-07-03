@@ -2,7 +2,7 @@
 
 command-line version of battleship game
 
---playerVSplayer version
+--playerVplayer
 
 --set up your ships
 
