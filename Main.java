@@ -136,6 +136,7 @@ public class Main {
             collection1.takeAttack(player1.shootingField, player1.placingField, player1.ships);
 
         }
+        System.out.println("Congratulations! your ships survived the heat. You won!");
 
     }
 }
