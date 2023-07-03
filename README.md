@@ -173,5 +173,5 @@ You hit a ship!
 Press Enter and pass the move to another player
 
 ...
-Congratulations! your ships survived the heat. You won!
+Congratulations! You won!
 ```
