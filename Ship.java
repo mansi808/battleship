@@ -3,6 +3,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.stream.*;
 
+//ships have a name and cell size
+//ship may be part of a collection of ships in game
+//placed ships = '0'
+//hit ships = 'X'
+//miss ships = 'M'
+
 public class Ship {
     public ShipCollection collectionOf;
     public static char safe_symbol = 'O';
@@ -12,7 +18,6 @@ public class Ship {
     public String level; //"vertical" or "horizontal"
     public boolean posValid = false;
     public ArrayList<String> inputPos = new ArrayList<>(); //contains all boxes of input position
-    public boolean hit = false;
 
     Ship(String name, int cellSize) {
         this.name = name;
@@ -31,7 +36,7 @@ public class Ship {
         } else if (level.equals("horizontal") ? Math.abs(Integer.parseInt(a.substring(1))-Integer.parseInt(b.substring(1)))+1!= cellSize : Math.abs(a.charAt(0)-b.charAt(0))!= (cellSize-1) ) {
             //checking length of ship using subtraction
             System.out.println(String.format("Error! Wrong length of the %s! Try again:",name));
-            inputPos.clear(); //clearing input pos if invalid input
+            inputPos.clear();    //clearing input pos if invalid input
 
         } else if ( collectionOf.allClosePos != null )  {
 
@@ -42,18 +47,20 @@ public class Ship {
                 posValid =true;
             } else  {
                 System.out.println("Error! You placed it too close to another one. Try again:");
-                inputPos.clear(); //clearing input pos if invalid input
+                inputPos.clear();    //clearing input pos if invalid input
             }
         } else {
             posValid =true;
         }
     }
-
-    public void getLevel(String a, String b) {
+    
+    //sets the value of level as 'horizontal' or 'vertical'
+    public void setLevel(String a, String b) {
         if (a.charAt(0)==b.charAt(0)) level = "horizontal";
         else if (a.substring(1).equals(b.substring(1))) level = "vertical";
     }
 
+    //adds all the positions for each ship according to level
     public void inputPos(String a, String b, GameField field) {
         if (level!= null) if (level.equals("vertical")) {
             addPos(Integer.parseInt(a.substring(1)), a.charAt(0), b.charAt(0));
@@ -62,6 +69,7 @@ public class Ship {
         }
     }
 
+    //multiple constructors for addPos()
     //adding positions to inputPos String[]
     //vertical ship
     private void addPos(int x_pos, char y_pos1, char y_pos2) {
@@ -77,10 +85,11 @@ public class Ship {
         for (int i = Math.min(x_pos1, x_pos2); i < cellSize + Math.min(x_pos1, x_pos2); i++) inputPos.add((y - 1)+""+(i - 1));
     }
 
-
-
+    
 }
 
+
+//collection of ships for players
 class ShipCollection {
     public Ship[] ships;
     public int length;
@@ -92,12 +101,12 @@ class ShipCollection {
         this.ships = ships;
     }
     
-    //setting collection of each set of ships
+    //setting collectionOf variable for each set of ships as the object itself
     public void setCollectionOf() {
         for (Ship x: ships) x.collectionOf = this;
     }
 
-    //positions occupied by ships
+    //positions occupied by ships on placing field
     public void occcupied(GameField field) {
 
         allPos.clear();
@@ -109,6 +118,7 @@ class ShipCollection {
     }
 
 
+    //
     public void takeAttack(GameField shootingField, GameField placingField, Ship[] ships) {
         Scanner scanner = new Scanner(System.in);
 
@@ -119,12 +129,13 @@ class ShipCollection {
         int col = Integer.parseInt(attack_pos.substring(1)) - 1;
         int row = (Character.getNumericValue(attack_pos.charAt(0))-9) -1;
 
-        if ((row >= shootingField.dim_size || col >= shootingField.dim_size)) { //ArrayIndexOutOfBounds occur if placed below (some problem with collectionOf.allPos or something else)
+        //invalid coordinates warning message
+        if ((row >= shootingField.dim_size || col >= shootingField.dim_size)) { 
 
             System.out.println("Error! You entered the wrong coordinates! Try again:");
             takeAttack(shootingField, placingField, ships);
 
-        } else if (allPos.contains(row+""+col)) {
+        } else if (allPos.contains(row+""+col)) {   //checking if a ship was hit
 
             shootingField.construct(Ship.hit_symbol, Integer.parseInt(attack_pos.substring(1)), attack_pos.charAt(0) );
             placingField.construct(Ship.hit_symbol, Integer.parseInt(attack_pos.substring(1)), attack_pos.charAt(0) );
@@ -143,7 +154,7 @@ class ShipCollection {
                 }
             }
 
-        } else if (!allPos.contains(row+""+col)) {
+        } else if (!allPos.contains(row+""+col)) { //checking if it was missed
 
             shootingField.construct('M', Integer.parseInt(attack_pos.substring(1)), attack_pos.charAt(0) );
             placingField.construct('M', Integer.parseInt(attack_pos.substring(1)), attack_pos.charAt(0) );
@@ -156,21 +167,9 @@ class ShipCollection {
 
         try {
             // placing field has all the x's and the shooting field should have all the x's too
-            if (!shootingField.allHitPos().isEmpty() ) {
+            if (!shootingField.allHitPos().isEmpty() && !allPos.isEmpty()) {
 
-                // checking if 'O' is there for all position of the field where bombs are placed
-                //( placingField also changes 'O' --> 'X' or 'M' (if hit or miss) )
-                int counter = 0;
-                for (int i=0; i< placingField.dim_size; i++) {
-                    for (int j=0; j< placingField.dim_size; j++) {
-                        if (placingField.contents[i][j] != 'O') {
-                            counter += 1;
-                        }
-                    }
-                }
-                //there are no 'O' so counter is at max
-                if (counter == placingField.dim_size * placingField.dim_size) {
-                    System.out.println("You sank the last ship. You won. Congratulations!");
+                if (shootingField.allHitPos().size() == this.allPos.size()) {
                     return true;
                 }
             }
@@ -179,8 +178,8 @@ class ShipCollection {
         } return false;
     }
 
-    //positions closer to ships
-    public void inrange(GameField field) {
+    //positions closer to ships sets 'allClosePos' variable
+    public void setAllClosePos(GameField field) {
 
         allClosePos.clear();
         for (String x: allPos) {
