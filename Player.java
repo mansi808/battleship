@@ -1,5 +1,8 @@
 package battleship;
 
+//each player has ship collection
+//placing field where user places his/her ships as 'O'
+//shooting field is the one displayed during attack time
 public class Player {
     public Ship[] ships;
     public GameField placingField;
