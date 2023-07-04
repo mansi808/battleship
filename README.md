@@ -6,6 +6,8 @@ command-line version of battleship game
 
 --set up your ships
 
+--pressing enter clears out screen for next user to create secrecy for opponents ships
+
 --sink your opponent's ships to win the game
 
 
@@ -111,21 +113,6 @@ Press Enter and pass the move to another player
 ```
 ```
 Player 2, place your ships to the game field
-  1 2 3 4 5 6 7 8 9 10
-A ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-B ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-C ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-D ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-E ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-F ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-G ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-H ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-I ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-
-Enter the coordinates of the Aircraft Carrier (5 cells):
-
-A1 A5
 
 ...
 
