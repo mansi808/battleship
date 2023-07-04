@@ -8,6 +8,7 @@ command-line version of battleship game
 
 --sink your opponent's ships to win the game
 
+
 ```
 Player 1, place your ships on the game field
 
@@ -57,7 +58,10 @@ J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
 Enter the coordinates of the Submarine (3 cells):
 
-J8 J10
+R4 T7
+
+Error! Wrong ship location! Try again:
+I8 I10
 
   1 2 3 4 5 6 7 8 9 10
 A O ~ ~ ~ ~ ~ ~ ~ ~ ~ 
@@ -68,49 +72,45 @@ E ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 F ~ ~ O O O O O ~ ~ ~ 
 G ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
 H ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-I ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-J ~ ~ ~ ~ ~ ~ ~ O O O 
+I ~ ~ ~ ~ ~ ~ ~ O O O 
+J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
 
 Enter the coordinates of the Cruiser (3 cells):
 
-B3 D3
+I2 I4
 
   1 2 3 4 5 6 7 8 9 10
 A O ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-B O ~ O ~ ~ ~ ~ ~ ~ ~ 
-C O ~ O ~ ~ ~ ~ ~ ~ ~ 
-D O ~ O ~ ~ ~ ~ ~ ~ ~ 
+B O ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+C O ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+D O ~ ~ ~ ~ ~ ~ ~ ~ ~ 
 E ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
 F ~ ~ O O O O O ~ ~ ~ 
 G ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
 H ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-I ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-J ~ ~ ~ ~ ~ ~ ~ O O O 
+I ~ O O O ~ ~ ~ O O O 
+J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
 
 Enter the coordinates of the Destroyer (2 cells):
 
-J2 I2
+B3 C3
 
   1 2 3 4 5 6 7 8 9 10
 A O ~ ~ ~ ~ ~ ~ ~ ~ ~ 
 B O ~ O ~ ~ ~ ~ ~ ~ ~ 
 C O ~ O ~ ~ ~ ~ ~ ~ ~ 
-D O ~ O ~ ~ ~ ~ ~ ~ ~ 
+D O ~ ~ ~ ~ ~ ~ ~ ~ ~ 
 E ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
 F ~ ~ O O O O O ~ ~ ~ 
 G ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
 H ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-I ~ O ~ ~ ~ ~ ~ ~ ~ ~ 
-J ~ O ~ ~ ~ ~ ~ O O O 
+I ~ O O O ~ ~ ~ O O O 
+J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
 
 Press Enter and pass the move to another player
 ```
 ```
 Player 2, place your ships to the game field
-
-...
-```
-```
   1 2 3 4 5 6 7 8 9 10
 A ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
 B ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
@@ -122,18 +122,55 @@ G ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 H ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
 I ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
 J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
----------------------
+
+Enter the coordinates of the Aircraft Carrier (5 cells):
+
+A1 A5
+
+...
+
+  1 2 3 4 5 6 7 8 9 10
+A O O O O O ~ ~ ~ ~ ~ 
+B ~ ~ ~ ~ ~ ~ ~ O ~ ~ 
+C ~ ~ ~ ~ ~ ~ ~ O ~ ~ 
+D ~ ~ ~ ~ ~ ~ ~ O ~ ~ 
+E ~ ~ ~ ~ ~ ~ ~ O ~ ~ 
+F ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+G ~ ~ ~ ~ ~ O O O ~ ~ 
+H ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+I ~ O O O ~ ~ ~ ~ O O 
+J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+
+--------------------------------------------------------------------
+Let's start the game!
+Press Enter and pass the move to another player
+```
+
+```
+  1 2 3 4 5 6 7 8 9 10
+A ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+B ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+C ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+D ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+E ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+F ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+G ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+H ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+I ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+----------------------
   1 2 3 4 5 6 7 8 9 10
 A O ~ ~ ~ ~ ~ ~ ~ ~ ~ 
 B O ~ O ~ ~ ~ ~ ~ ~ ~ 
 C O ~ O ~ ~ ~ ~ ~ ~ ~ 
-D O ~ O ~ ~ ~ ~ ~ ~ ~ 
+D O ~ ~ ~ ~ ~ ~ ~ ~ ~ 
 E ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
 F ~ ~ O O O O O ~ ~ ~ 
 G ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
 H ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-I ~ O ~ ~ ~ ~ ~ ~ ~ ~ 
-J ~ O ~ ~ ~ ~ ~ O O O 
+I ~ O O O ~ ~ ~ O O O 
+J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+
 Player 1, it's your turn:
 
 A1
@@ -141,38 +178,38 @@ A1
 You hit a ship!
 Press Enter and pass the move to another player
 ```
+
 ```
+...
 
   1 2 3 4 5 6 7 8 9 10
-A ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-B ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-C ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-D ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-E ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-F ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-G ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-H ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-I ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
----------------------
+A X M ~ ~ ~ ~ M ~ ~ M 
+B X ~ X ~ ~ M ~ ~ ~ ~ 
+C X ~ X M ~ ~ ~ ~ ~ ~ 
+D X ~ ~ ~ ~ ~ ~ ~ ~ M 
+E M ~ ~ ~ ~ M ~ ~ ~ ~ 
+F ~ ~ X X X X X M ~ ~ 
+G ~ ~ M ~ ~ ~ M ~ ~ ~ 
+H ~ ~ ~ ~ ~ ~ ~ ~ M ~ 
+I ~ X X M ~ ~ M X X ~ 
+J ~ ~ ~ ~ ~ M ~ ~ ~ ~ 
+----------------------
   1 2 3 4 5 6 7 8 9 10
-A X ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-B O ~ O ~ ~ ~ ~ ~ ~ ~ 
-C O ~ O ~ ~ ~ ~ ~ ~ ~ 
-D O ~ O ~ ~ ~ ~ ~ ~ ~ 
-E ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-F ~ ~ O O O O O ~ ~ ~ 
-G ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-H ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-I ~ O ~ ~ ~ ~ ~ O O O 
-J ~ O ~ ~ ~ ~ ~ ~ ~ ~ 
+A X X X X X M ~ ~ ~ ~ 
+B M ~ ~ ~ M ~ ~ O M ~ 
+C ~ M ~ ~ ~ M ~ O ~ ~ 
+D ~ M ~ M ~ ~ ~ O ~ ~ 
+E ~ ~ ~ ~ M ~ ~ O ~ M 
+F ~ M ~ ~ ~ ~ M ~ ~ ~ 
+G ~ ~ ~ ~ M X X X ~ ~ 
+H ~ M ~ ~ ~ ~ ~ ~ ~ M 
+I M X X X ~ ~ ~ ~ X X 
+J ~ ~ ~ M ~ M ~ ~ M ~ 
+
 Player 2, it's your turn:
 
-A1
+I10
 
-You hit a ship!
-Press Enter and pass the move to another player
-
-...
-Congratulations! You won!
+You sank a ship!
+Congratulation! You won!
 ```
