@@ -10,6 +10,7 @@ command-line version of battleship game
 
 --sink your opponent's ships to win the game
 
+#### How to play
 
 ```
 Player 1, place your ships on the game field
