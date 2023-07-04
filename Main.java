@@ -96,7 +96,9 @@ public class Main {
 
         }
 
-
+        System.out.println("--------------------------------------------------------------------");
+        System.out.println("Let's start the game!");
+        
         //asking for players to shoot bombs till someone's all ships sink
         //top field is where attackers attacks
         //bottom field is attacker's field
