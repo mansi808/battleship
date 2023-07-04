@@ -84,15 +84,12 @@ public class ShipCollection {
     }
 
     //return true if all ships sank
-    public boolean areAllSank(GameField shootingField, GameField placingField) {
+    public boolean areAllSank(GameField placingField) {
 
         try {
-            // placing field has all the x's and the shooting field should have all the x's too
-            if (!shootingField.allHitPos().isEmpty() && !allPos.isEmpty()) {
-
-                if (shootingField.allHitPos().size() == this.allPos.size()) {
-                    return true;
-                }
+            // placing field will have same number of 'X' as the length of allPos
+            if (placingField.allHitPos().size() == allPos.size()) {
+                return true;
             }
         } catch(NullPointerException e) {
             return false;
