@@ -102,7 +102,7 @@ public class Main {
         //asking for players to shoot bombs till someone's all ships sink
         //top field is where attackers attacks
         //bottom field is attacker's field
-        while (!collection1.areAllSank(player1.shootingField, player1.placingField) || !collection2.areAllSank(player2.shootingField, player2.placingField)) {
+        while (!collection1.areAllSank(player1.placingField) || !collection2.areAllSank(player2.placingField)) {
 
             //clearing screen
             System.out.println("Press Enter and pass the move to another player");
