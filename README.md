@@ -104,12 +104,13 @@ I ~ O ~ ~ ~ ~ ~ ~ ~ ~
 J ~ O ~ ~ ~ ~ ~ O O O 
 
 Press Enter and pass the move to another player
-
-
+```
+```
 Player 2, place your ships to the game field
 
 ...
-
+```
+```
   1 2 3 4 5 6 7 8 9 10
 A ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
 B ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
@@ -139,8 +140,8 @@ A1
 
 You hit a ship!
 Press Enter and pass the move to another player
-
-
+```
+```
 
   1 2 3 4 5 6 7 8 9 10
 A ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
